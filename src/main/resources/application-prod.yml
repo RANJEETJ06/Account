@@ -1,0 +1,40 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: accounts
+  profiles:
+    active: prod
+
+  # ---- DataSource / JPA ----
+  datasource:
+    url: jdbc:h2:mem:testDb
+    driver-class-name: org.h2.Driver
+    username: ranjeet
+    password: qaz123@QAZ
+  h2:
+    console:
+      enabled: true
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  # ---- Config Server ----
+  config:
+    import: "configserver:http://configserver-ms:8071/"
+
+  # ---- RabbitMQ ----
+  rabbitmq:
+    host: rabbit
+    port: 5672
+    username: guest
+    password: guest
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
