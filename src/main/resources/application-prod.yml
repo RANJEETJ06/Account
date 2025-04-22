@@ -12,6 +12,9 @@ spring:
     url: jdbc:mysql://localhost:3308/accountsdb
     username: root
     password: root
+  sql:
+    init:
+      mode: always
   jpa:
     hibernate:
       ddl-auto: update
