@@ -5,7 +5,7 @@ import com.learn.accounts.DTO.CustomerDto;
 public interface IAccountService {
 
     void createAccount(CustomerDto customerDto);
-    CustomerDto fetchCustomerByMobileNumber(String MobileNumber);
-    Boolean updateAccount(CustomerDto customerDto);
-    Boolean deleteAccount(Long accountNumber);
+    CustomerDto fetchAccount(String mobileNumber);
+    boolean updateAccount(CustomerDto customerDto);
+    boolean deleteAccount(String mobileNumber);
 }

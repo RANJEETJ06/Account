@@ -4,16 +4,19 @@ import com.learn.accounts.DTO.AccountDto;
 import com.learn.accounts.entities.Accounts;
 
 public class AccountMapper {
-    public static AccountDto AccountToDto(Accounts accounts,AccountDto accountDto){
-        accountDto.setAccountNumber(accounts.getAccountNumber());
-        accountDto.setBranchAddress(accounts.getBranchAddress());
-        accountDto.setAccountType(accounts.getAccountType());
-        return accountDto;
+
+    public static AccountDto mapToAccountsDto(Accounts accounts, AccountDto accountsDto) {
+        accountsDto.setAccountNumber(accounts.getAccountNumber());
+        accountsDto.setAccountType(accounts.getAccountType());
+        accountsDto.setBranchAddress(accounts.getBranchAddress());
+        return accountsDto;
     }
-    public static Accounts DtoToAccounts(AccountDto accountDto,Accounts account){
-        account.setAccountNumber(accountDto.getAccountNumber());
-        account.setBranchAddress(accountDto.getBranchAddress());
-        account.setAccountType(accountDto.getAccountType());
-        return account;
+
+    public static Accounts mapToAccounts(AccountDto accountsDto, Accounts accounts) {
+        accounts.setAccountNumber(accountsDto.getAccountNumber());
+        accounts.setAccountType(accountsDto.getAccountType());
+        accounts.setBranchAddress(accountsDto.getBranchAddress());
+        return accounts;
     }
+
 }
