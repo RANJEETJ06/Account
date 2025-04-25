@@ -28,7 +28,7 @@ import org.springframework.web.bind.annotation.*;
  */
 
 @Tag(
-        name = "CRUD REST APIs for Accounts i",
+        name = "CRUD REST APIs for Accounts ",
         description = "CRUD REST APIs to CREATE, UPDATE, FETCH AND DELETE account details"
 )
 @RestController
