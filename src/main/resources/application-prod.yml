@@ -57,3 +57,10 @@ info:
     name: "accounts"
     description: "learn API for accounts"
     version: "1.1.0"
+
+#optional
+logging:
+  level:
+    com:
+      learn:
+        accounts: DEBUG
