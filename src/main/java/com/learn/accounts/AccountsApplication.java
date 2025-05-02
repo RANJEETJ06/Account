@@ -1,6 +1,6 @@
 package com.learn.accounts;
 
-import com.learn.accounts.DTO.AccountsContactInfoDto;
+import com.learn.accounts.dto.AccountsContactInfoDto;
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.info.Contact;
 import io.swagger.v3.oas.annotations.info.Info;

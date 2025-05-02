@@ -1,9 +1,9 @@
 package com.learn.accounts.services.impl;
 
-import com.learn.accounts.DTO.AccountDto;
-import com.learn.accounts.DTO.CardsDto;
-import com.learn.accounts.DTO.CustomerDetailsDto;
-import com.learn.accounts.DTO.LoansDto;
+import com.learn.accounts.dto.AccountDto;
+import com.learn.accounts.dto.CardsDto;
+import com.learn.accounts.dto.CustomerDetailsDto;
+import com.learn.accounts.dto.LoansDto;
 import com.learn.accounts.Exception.ResourceNotFoundException;
 import com.learn.accounts.entities.Accounts;
 import com.learn.accounts.entities.Customer;

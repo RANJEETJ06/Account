@@ -1,7 +1,7 @@
 package com.learn.accounts.services.impl;
 
-import com.learn.accounts.DTO.AccountDto;
-import com.learn.accounts.DTO.CustomerDto;
+import com.learn.accounts.dto.AccountDto;
+import com.learn.accounts.dto.CustomerDto;
 import com.learn.accounts.Exception.CustomerAlreadyExistException;
 import com.learn.accounts.Exception.ResourceNotFoundException;
 import com.learn.accounts.constants.AccountConstants;

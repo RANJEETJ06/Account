@@ -1,7 +1,7 @@
 package com.learn.accounts.controllers;
 
-import com.learn.accounts.DTO.CustomerDetailsDto;
-import com.learn.accounts.DTO.ErrorResponseDto;
+import com.learn.accounts.dto.CustomerDetailsDto;
+import com.learn.accounts.dto.ErrorResponseDto;
 import com.learn.accounts.services.ICustomerService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;

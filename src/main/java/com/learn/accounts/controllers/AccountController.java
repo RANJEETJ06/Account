@@ -1,9 +1,9 @@
 package com.learn.accounts.controllers;
 
-import com.learn.accounts.DTO.AccountsContactInfoDto;
-import com.learn.accounts.DTO.CustomerDto;
-import com.learn.accounts.DTO.ErrorResponseDto;
-import com.learn.accounts.DTO.ResponseDto;
+import com.learn.accounts.dto.AccountsContactInfoDto;
+import com.learn.accounts.dto.CustomerDto;
+import com.learn.accounts.dto.ErrorResponseDto;
+import com.learn.accounts.dto.ResponseDto;
 import com.learn.accounts.constants.AccountConstants;
 import com.learn.accounts.services.IAccountService;
 import io.swagger.v3.oas.annotations.Operation;

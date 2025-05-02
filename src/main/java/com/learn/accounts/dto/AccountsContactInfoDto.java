@@ -1,4 +1,4 @@
-package com.learn.accounts.DTO;
+package com.learn.accounts.dto;
 
 import lombok.Getter;
 import lombok.Setter;

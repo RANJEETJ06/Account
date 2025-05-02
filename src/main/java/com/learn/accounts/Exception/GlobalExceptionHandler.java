@@ -1,6 +1,6 @@
 package com.learn.accounts.Exception;
 
-import com.learn.accounts.DTO.ErrorResponseDto;
+import com.learn.accounts.dto.ErrorResponseDto;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;

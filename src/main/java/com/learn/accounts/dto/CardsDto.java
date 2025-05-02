@@ -1,4 +1,4 @@
-package com.learn.accounts.DTO;
+package com.learn.accounts.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotEmpty;

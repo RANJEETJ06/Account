@@ -1,40 +1,27 @@
 server:
   port: 8080
-
 spring:
-  application:
-    name: accounts
-  profiles:
-    active: prod
-
-  # ---- DataSource / JPA ----
   datasource:
-    url: jdbc:mysql://localhost:3308/accountsdb
-    username: root
-    password: root
+    url: jdbc:h2:mem:accountsdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
   sql:
     init:
       mode: always
   jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
       ddl-auto: update
-    show-sql: true
-
-  # ---- Config Server ----
+  #    show-sql: true
+  application:
+    name: "accounts"
   config:
     import: "configserver:http://configserver-ms:8071/"
-
-  # ---- RabbitMQ ----
-  rabbitmq:
-    host: rabbit
-    port: 5672
-    username: guest
-    password: guest
   cloud:
     openfeign:
       circuitbreaker:
         enabled: true
-
 management:
   endpoints:
     web:
@@ -43,17 +30,9 @@ management:
   info:
     env:
       enabled: true
-  health:
-    readiness-state:
-      enabled: true
-    liveness-state:
-      enabled: true
   endpoint:
     shutdown:
       access: unrestricted
-    health:
-      probes:
-        enabled: true
 
 eureka:
   instance:
@@ -70,7 +49,6 @@ info:
     description: "learn API for accounts"
     version: "1.1.0"
 
-#optional
 logging:
   level:
     com:

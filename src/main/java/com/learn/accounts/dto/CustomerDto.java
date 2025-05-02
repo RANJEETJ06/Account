@@ -1,4 +1,4 @@
-package com.learn.accounts.DTO;
+package com.learn.accounts.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.Email;
@@ -10,9 +10,9 @@ import lombok.Data;
 @Data
 @Schema(
         name = "Customer",
-        description = "Schema to hold Customer,Account,Card and Loan details"
+        description = "Schema to hold Customer and Account details"
 )
-public class CustomerDetailsDto {
+public class CustomerDto {
     @Schema(
             description = "Name of Customer",example = "Ranjeet Jena"
     )
@@ -38,14 +38,4 @@ public class CustomerDetailsDto {
             description = "Account details of the customer"
     )
     private AccountDto accountDto;
-
-    @Schema(
-            description = "Card details of the customer"
-    )
-    private CardsDto cardsDto;
-
-    @Schema(
-            description = "Loan details of the customer"
-    )
-    private LoansDto loansDto;
 }

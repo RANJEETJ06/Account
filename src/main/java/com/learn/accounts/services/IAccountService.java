@@ -1,6 +1,6 @@
 package com.learn.accounts.services;
 
-import com.learn.accounts.DTO.CustomerDto;
+import com.learn.accounts.dto.CustomerDto;
 
 public interface IAccountService {
 

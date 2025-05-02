@@ -1,7 +1,7 @@
 package com.learn.accounts.mapper;
 
-import com.learn.accounts.DTO.CustomerDetailsDto;
-import com.learn.accounts.DTO.CustomerDto;
+import com.learn.accounts.dto.CustomerDetailsDto;
+import com.learn.accounts.dto.CustomerDto;
 import com.learn.accounts.entities.Customer;
 
 public class CustomerMapper {

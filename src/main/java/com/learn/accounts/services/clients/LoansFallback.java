@@ -1,6 +1,6 @@
 package com.learn.accounts.services.clients;
 
-import com.learn.accounts.DTO.LoansDto;
+import com.learn.accounts.dto.LoansDto;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
