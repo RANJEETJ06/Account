@@ -1,6 +1,7 @@
 package com.learn.accounts.services.impl;
 
 import com.learn.accounts.DTO.AccountDto;
+import com.learn.accounts.DTO.AccountsMsgDto;
 import com.learn.accounts.DTO.CustomerDto;
 import com.learn.accounts.Exception.CustomerAlreadyExistException;
 import com.learn.accounts.Exception.ResourceNotFoundException;
@@ -13,6 +14,8 @@ import com.learn.accounts.repository.AccountRepository;
 import com.learn.accounts.repository.CustomerRepository;
 import com.learn.accounts.services.IAccountService;
 import lombok.AllArgsConstructor;
+import org.slf4j.LoggerFactory;
+import org.springframework.cloud.stream.function.StreamBridge;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -24,6 +27,7 @@ public class AccountServiceImpl  implements IAccountService {
 
     private AccountRepository accountsRepository;
     private CustomerRepository customerRepository;
+    private final StreamBridge streamBridge;
 
     /**
      * @param customerDto - CustomerDto Object
@@ -37,7 +41,13 @@ public class AccountServiceImpl  implements IAccountService {
                     +customerDto.getMobileNumber());
         }
         Customer savedCustomer = customerRepository.save(customer);
-        accountsRepository.save(createNewAccount(savedCustomer));
+        Accounts savedAccounts=accountsRepository.save(createNewAccount(savedCustomer));
+        sendCommunication(savedAccounts,savedCustomer);
+    }
+
+    private void sendCommunication(Accounts accounts, Customer customer) {
+        var accountMsgDto=new AccountsMsgDto(accounts.getAccountNumber(), customer.getName(), customer.getEmail(), customer.getMobileNumber());
+        streamBridge.send("sendCommunication-out-0",accountMsgDto);
     }
 
     /**
@@ -110,6 +120,21 @@ public class AccountServiceImpl  implements IAccountService {
         accountsRepository.deleteByCustomerId(customer.getCustomerId());
         customerRepository.deleteById(customer.getCustomerId());
         return true;
+    }
+
+    @Override
+    public boolean updateCommunicationStatus(Long accountNumber) {
+        boolean isUpdate=false;
+        if(accountNumber!=null){
+            Accounts accounts=accountsRepository.findById(accountNumber).orElseThrow(
+                    ()->new ResourceNotFoundException("Account","Account Number",accountNumber.toString())
+            );
+            accounts.setCommunicationSw(true);
+            accountsRepository.save(accounts);
+            LoggerFactory.getLogger(AccountServiceImpl.class).debug(String.valueOf(accounts));
+            isUpdate=true;
+        }
+        return isUpdate;
     }
 
 
